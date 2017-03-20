@@ -25,7 +25,7 @@ RUN curl -sSL https://getcomposer.org/composer.phar -o /usr/bin/composer \
 RUN sed -i "s/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www/" /etc/apache2/apache2.conf \
     && rm -rf /var/www && mkdir -p /var/www
 
-VOLUME ["/var/www"]
+VOLUME ["/var/www/html"]
 
 WORKDIR /var/www
 COPY /website /var/www/html
