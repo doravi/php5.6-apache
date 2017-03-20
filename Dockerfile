@@ -27,7 +27,7 @@ RUN sed -i "s/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www/" /etc/apach
 
 VOLUME ["/var/www/html"]
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 COPY /website /var/www/html
 
 RUN usermod -u 1000 www-data
@@ -37,3 +37,5 @@ RUN a2enmod rewrite
 RUN apt-get update \
     && apt-get install -y libxslt-dev \
     && docker-php-ext-install xsl
+    
+RUN chmod -Rf 777 /var/www/html
