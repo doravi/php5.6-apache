@@ -28,6 +28,7 @@ RUN sed -i "s/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www/" /etc/apach
 VOLUME ["/var/www"]
 
 WORKDIR /var/www
+COPY /website /var/www/html
 
 RUN usermod -u 1000 www-data
 RUN chown -R www-data:www-data /var/www
